@@ -9,7 +9,7 @@
 # 1 "encm369_pic18.c" 2
 # 17 "encm369_pic18.c"
 # 1 "./configuration.h" 1
-# 30 "./configuration.h"
+# 29 "./configuration.h"
 #pragma config FEXTOSC = OFF
 #pragma config RSTOSC = HFINTOSC_64MHZ
 
@@ -58,7 +58,56 @@
 
 
 #pragma config CP = OFF
-# 87 "./configuration.h"
+# 88 "./configuration.h"
+#pragma config FEXTOSC = OFF
+#pragma config RSTOSC = HFINTOSC_64MHZ
+
+
+#pragma config CLKOUTEN = ON
+#pragma config PR1WAY = ON
+#pragma config CSWEN = ON
+#pragma config FCMEN = ON
+
+
+#pragma config MCLRE = EXTMCLR
+#pragma config PWRTS = PWRT_OFF
+#pragma config MVECEN = ON
+#pragma config IVT1WAY = ON
+#pragma config LPBOREN = OFF
+#pragma config BOREN = SBORDIS
+
+
+#pragma config BORV = VBOR_2P85
+#pragma config ZCD = OFF
+#pragma config PPS1WAY = ON
+#pragma config STVREN = ON
+#pragma config LVP = ON
+#pragma config XINST = OFF
+
+
+#pragma config WDTCPS = WDTCPS_31
+#pragma config WDTE = OFF
+
+
+#pragma config WDTCWS = WDTCWS_7
+#pragma config WDTCCS = SC
+
+
+#pragma config BBSIZE = BBSIZE_512
+#pragma config BBEN = OFF
+#pragma config SAFEN = OFF
+#pragma config DEBUG = OFF
+
+
+#pragma config WRTB = OFF
+#pragma config WRTC = OFF
+#pragma config WRTD = OFF
+#pragma config WRTSAF = OFF
+#pragma config WRTAPP = OFF
+
+
+#pragma config CP = OFF
+# 145 "./configuration.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -27133,7 +27182,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\\pic\\include\\xc.h" 2 3
-# 87 "./configuration.h" 2
+# 145 "./configuration.h" 2
 
 
 
@@ -27227,10 +27276,10 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdint.h" 2 3
-# 95 "./configuration.h" 2
+# 153 "./configuration.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
-# 96 "./configuration.h" 2
+# 154 "./configuration.h" 2
 
 # 1 "./typedefs.h" 1
 # 27 "./typedefs.h"
@@ -27270,10 +27319,10 @@ typedef void(*fnCode_u16_type)(u16 x);
 
 
 typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
-# 97 "./configuration.h" 2
+# 155 "./configuration.h" 2
 
 # 1 "./main.h" 1
-# 98 "./configuration.h" 2
+# 156 "./configuration.h" 2
 
 
 
@@ -27284,7 +27333,8 @@ void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
-# 101 "./configuration.h" 2
+void TimeXus(u16 microsecondsoffset);
+# 159 "./configuration.h" 2
 
 
 
@@ -27294,54 +27344,37 @@ void SystemSleep(void);
 # 27 "./user_app.h"
 void UserAppInitialize(void);
 void UserAppRun(void);
-# 106 "./configuration.h" 2
+# 164 "./configuration.h" 2
 # 17 "encm369_pic18.c" 2
 # 30 "encm369_pic18.c"
 extern volatile u32 G_u32SystemTime1ms;
 extern volatile u32 G_u32SystemTime1s;
 extern volatile u32 G_u32SystemFlags;
-# 59 "encm369_pic18.c"
+# 56 "encm369_pic18.c"
 void ClockSetup(void)
 {
 
 
 }
-# 74 "encm369_pic18.c"
+# 71 "encm369_pic18.c"
 void GpioSetup(void)
 {
-    LATA = 0x80;
     ANSELA = 0x00;
     TRISA = 0x00;
 
 
+    DAC1CON = 0xA0;
 
 }
-# 93 "encm369_pic18.c"
+# 90 "encm369_pic18.c"
 void SysTickSetup(void)
 {
   G_u32SystemTime1ms = 0;
   G_u32SystemTime1s = 0;
 
 }
-# 111 "encm369_pic18.c"
+# 108 "encm369_pic18.c"
 void SystemSleep(void)
 {
-
-}
-# 132 "encm369_pic18.c"
-void TimeXus(u16 u16Time)
-{
-
-
-    T0CON0 &= 0x7F;
-
-
-    u16 u16Value = 0xFFFF - u16Time;
-    TMR0H = u16Value >> 8;
-    TMR0L = u16Value & 0x00FF;
-
-
-    PIR3 &= 0x7F;
-    T0CON0 |= 0x80;
 
 }

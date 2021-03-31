@@ -15,78 +15,150 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28
 [; ;./user_app.h: 28: void UserAppRun(void);
 [v _UserAppRun `(v ~T0 @X0 0 ef ]
-"45584 C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h: 45584: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
-[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
 "62 ./encm369_pic18.h
 [; ;./encm369_pic18.h: 62: void SystemSleep(void);
 [v _SystemSleep `(v ~T0 @X0 0 ef ]
-"61 main.c
-[; ;main.c: 61:     TimeXus(0x014D);
-[v _TimeXus `(i ~T0 @X0 0 e? ]
-"30 ./configuration.h
+"63
+[; ;./encm369_pic18.h: 63: void TimeXus(u16 microsecondsoffset);
+[v _TimeXus `(v ~T0 @X0 0 ef1`us ]
+"44875 C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h: 44875:     struct {
+[s S2125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2125 . SPI1RXIF SPI1TXIF SPI1IF TMR2IF TMR1IF TMR1GIF CCP1IF TMR0IF ]
+"44874
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h: 44874: typedef union {
+[u S2124 `S2125 1 ]
+[n S2124 . . ]
+"44886
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h: 44886: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x4B1)));
+[v _PIR3bits `VS2124 ~T0 @X0 0 e@1201 ]
+"29 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
-"31
+"30
 [p x RSTOSC  =  HFINTOSC_64MHZ ]
-"34
+"33
 [p x CLKOUTEN  =  ON     ]
-"35
+"34
 [p x PR1WAY  =  ON       ]
-"36
+"35
 [p x CSWEN  =  ON        ]
-"37
+"36
 [p x FCMEN  =  ON        ]
-"40
+"39
 [p x MCLRE  =  EXTMCLR   ]
-"41
+"40
 [p x PWRTS  =  PWRT_OFF  ]
-"42
+"41
 [p x MVECEN  =  ON       ]
-"43
+"42
 [p x IVT1WAY  =  ON      ]
-"44
+"43
 [p x LPBOREN  =  OFF     ]
-"45
+"44
 [p x BOREN  =  SBORDIS   ]
-"48
+"47
 [p x BORV  =  VBOR_2P85  ]
-"49
+"48
 [p x ZCD  =  OFF         ]
-"50
+"49
 [p x PPS1WAY  =  ON      ]
-"51
+"50
 [p x STVREN  =  ON       ]
-"52
+"51
 [p x LVP  =  ON          ]
-"53
+"52
 [p x XINST  =  OFF       ]
-"56
+"55
 [p x WDTCPS  =  WDTCPS_31 ]
-"57
+"56
 [p x WDTE  =  OFF        ]
-"60
+"59
 [p x WDTCWS  =  WDTCWS_7 ]
-"61
+"60
 [p x WDTCCS  =  SC       ]
-"64
+"63
 [p x BBSIZE  =  BBSIZE_512 ]
-"65
+"64
 [p x BBEN  =  OFF        ]
-"66
+"65
 [p x SAFEN  =  OFF       ]
-"67
+"66
 [p x DEBUG  =  OFF       ]
-"70
+"69
 [p x WRTB  =  OFF        ]
-"71
+"70
 [p x WRTC  =  OFF        ]
-"72
+"71
 [p x WRTD  =  OFF        ]
-"73
+"72
 [p x WRTSAF  =  OFF      ]
-"74
+"73
 [p x WRTAPP  =  OFF      ]
-"77
+"76
+[p x CP  =  OFF          ]
+"88
+[p x FEXTOSC  =  OFF     ]
+"89
+[p x RSTOSC  =  HFINTOSC_64MHZ ]
+"92
+[p x CLKOUTEN  =  ON     ]
+"93
+[p x PR1WAY  =  ON       ]
+"94
+[p x CSWEN  =  ON        ]
+"95
+[p x FCMEN  =  ON        ]
+"98
+[p x MCLRE  =  EXTMCLR   ]
+"99
+[p x PWRTS  =  PWRT_OFF  ]
+"100
+[p x MVECEN  =  ON       ]
+"101
+[p x IVT1WAY  =  ON      ]
+"102
+[p x LPBOREN  =  OFF     ]
+"103
+[p x BOREN  =  SBORDIS   ]
+"106
+[p x BORV  =  VBOR_2P85  ]
+"107
+[p x ZCD  =  OFF         ]
+"108
+[p x PPS1WAY  =  ON      ]
+"109
+[p x STVREN  =  ON       ]
+"110
+[p x LVP  =  ON          ]
+"111
+[p x XINST  =  OFF       ]
+"114
+[p x WDTCPS  =  WDTCPS_31 ]
+"115
+[p x WDTE  =  OFF        ]
+"118
+[p x WDTCWS  =  WDTCWS_7 ]
+"119
+[p x WDTCCS  =  SC       ]
+"122
+[p x BBSIZE  =  BBSIZE_512 ]
+"123
+[p x BBEN  =  OFF        ]
+"124
+[p x SAFEN  =  OFF       ]
+"125
+[p x DEBUG  =  OFF       ]
+"128
+[p x WRTB  =  OFF        ]
+"129
+[p x WRTC  =  OFF        ]
+"130
+[p x WRTD  =  OFF        ]
+"131
+[p x WRTSAF  =  OFF      ]
+"132
+[p x WRTAPP  =  OFF      ]
+"135
 [p x CP  =  OFF          ]
 "328 C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5_40/packs/Microchip/PIC18F-Q_DFP/1.5.124/xc8\pic\include\proc\pic18f27q43.h: 328: __asm("CLKRCON equ 039h");
@@ -2593,28 +2665,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [; ;main.c: 51:   {
 {
-"55
-[; ;main.c: 55:     UserAppRun();
+"63
+[; ;main.c: 63:     UserAppRun();
 [e ( _UserAppRun ..  ]
-"59
-[; ;main.c: 59:     (LATA &= 0x7F);
-[e =& _LATA -> -> 127 `i `Vuc ]
-"60
-[; ;main.c: 60:     SystemSleep();
+"67
+[; ;main.c: 67:     SystemSleep();
 [e ( _SystemSleep ..  ]
-"61
-[; ;main.c: 61:     TimeXus(0x014D);
-[e ( _TimeXus -> 333 `i ]
-"62
-[; ;main.c: 62:     (LATA |= 0x80);
-[e =| _LATA -> -> 128 `i `Vuc ]
-"64
-[; ;main.c: 64:   }
+"70
+[; ;main.c: 70:     TimeXus(11);
+[e ( _TimeXus (1 -> -> 11 `i `us ]
+"72
+[; ;main.c: 72:     while (PIR3bits.TMR0IF == 0)
+[e $U 2276  ]
+[e :U 2277 ]
+"75
+[; ;main.c: 75:                   ;
+[e :U 2276 ]
+"72
+[; ;main.c: 72:     while (PIR3bits.TMR0IF == 0)
+[e $ == -> . . _PIR3bits 0 7 `i -> 0 `i 2277  ]
+[e :U 2278 ]
+"77
+[; ;main.c: 77:   }
 }
 [e :U 2273 ]
 [e $U 2274  ]
 [e :U 2275 ]
-"66
-[; ;main.c: 66: }
+"79
+[; ;main.c: 79: }
 [e :UE 2272 ]
 }
