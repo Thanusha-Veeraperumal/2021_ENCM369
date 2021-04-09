@@ -237,9 +237,42 @@ Promises:
 */
 void UserAppRun(void)
 {
+    static u8 u8NoteCounter = 0;
+    static u16 u16TimeCounter = 0;
+    
+    u16 G_au16SongNotes[] = {C4, C4, G4, G4, A4, A4, G4, F4, F4, E4, E4, D4, D4, C4};
+    u16 G_au16NoteTime[]= {N4, N4, N4, N4, N4, N4, N2, N4, N4, N4, N4, N4, N4, N2};
+    
+    /*Hold a note for a specific duration */
+    if(u16TimeCounter < G_au16NoteTime[u8NoteCounter])
+    {
+        InterruptTimerXus(G_au16SongNotes[u8NoteCounter], true);    
+        u16TimeCounter++;
+    }
+    
+    /*After a note plays,there will be no note played for RT amount of time  */
+    else if(u16TimeCounter >= G_au16NoteTime[u8NoteCounter])
+    {
+        u16TimeCounter = 0; 
+        while(u16TimeCounter < RT)
+        {
+            InterruptTimerXus(NN,true);
+            u16TimeCounter++;
+        }
+    
+        /*Update index for next note*/
+        u8NoteCounter++;
+        if (u8NoteCounter == 14)
+        {
+            u8NoteCounter=0;
+        }
+    
 
-  
-} /* end UserAppRun() */
+    }
+ 
+
+    
+}/* end UserAppRun() */
 
 
 
